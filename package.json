@@ -1,0 +1,33 @@
+{
+  "name": "anydoor",
+  "version": "1.0.0",
+  "description": "node练习",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "fix": "eslint --fix ."
+  },
+  "pre-commit": [
+    "fix",
+    "webserver",
+    "lint"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhangLeiBin/anydoor.git"
+  },
+  "keywords": [
+    "918521"
+  ],
+  "author": "zhanglb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhangLeiBin/anydoor/issues"
+  },
+  "homepage": "https://github.com/zhangLeiBin/anydoor#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "pre-commit": "^1.2.2"
+  }
+}
