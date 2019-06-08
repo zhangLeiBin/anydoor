@@ -1,6 +1,6 @@
 {
-  "name": "anydoor-zhanglb",
-  "version": "0.1.10",
+  "name": "anydoor-no-one",
+  "version": "0.1.100",
   "description": "nodejs web server",
   "main": "src/app.js",
   "bin": {
@@ -17,7 +17,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhangLeiBin/anydoor.git"
+    "url": "git+https://github.com/zhangLeiBin/anydoor-no-one.git"
   },
   "keywords": [
     "123456"
@@ -25,9 +25,9 @@
   "author": "zhangleibin",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zhangLeiBin/anydoor/issues"
+    "url": "https://github.com/zhangLeiBin/anydoor-no-one/issues"
   },
-  "homepage": "https://github.com/zhangLeiBin/anydoor#readme",
+  "homepage": "https://github.com/zhangLeiBin/anydoor-no-one#readme",
   "dependencies": {
     "chalk": "^2.4.2",
     "handlebars": "^4.1.2",
