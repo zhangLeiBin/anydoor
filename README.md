@@ -5,7 +5,7 @@ NodeJS Static web Server
 ## 安装
 
 ```
-npm i -g anydoor-zhanglb
+npm i -g anydoor-no-one
 ```
 
 ## 使用方法
