@@ -1,6 +1,6 @@
 {
   "name": "anydoor-zhanglb",
-  "version": "0.1.1",
+  "version": "0.1.10",
   "description": "nodejs web server",
   "main": "src/app.js",
   "bin": {
@@ -20,7 +20,7 @@
     "url": "git+https://github.com/zhangLeiBin/anydoor.git"
   },
   "keywords": [
-    "918521"
+    "123456"
   ],
   "author": "zhangleibin",
   "license": "ISC",
