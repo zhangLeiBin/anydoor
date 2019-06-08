@@ -1,8 +1,11 @@
 {
   "name": "anydoor",
-  "version": "1.0.0",
-  "description": "node练习",
-  "main": "index.js",
+  "version": "0.1.1",
+  "description": "nodejs web server",
+  "main": "src/app.js",
+  "bin": {
+    "anydoor":"bin/anydoor"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
@@ -10,7 +13,6 @@
   },
   "pre-commit": [
     "fix",
-    "webserver",
     "lint"
   ],
   "repository": {
@@ -26,7 +28,11 @@
     "url": "https://github.com/zhangLeiBin/anydoor/issues"
   },
   "homepage": "https://github.com/zhangLeiBin/anydoor#readme",
-  "dependencies": {},
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "handlebars": "^4.1.2",
+    "yargs": "^13.2.4"
+  },
   "devDependencies": {
     "pre-commit": "^1.2.2"
   }
