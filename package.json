@@ -1,5 +1,5 @@
 {
-  "name": "anydoor",
+  "name": "anydoor-zhanglb",
   "version": "0.1.1",
   "description": "nodejs web server",
   "main": "src/app.js",
@@ -22,7 +22,7 @@
   "keywords": [
     "918521"
   ],
-  "author": "zhanglb",
+  "author": "zhangleibin",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/zhangLeiBin/anydoor/issues"

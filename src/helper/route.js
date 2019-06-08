@@ -33,56 +33,56 @@ const isFresh = require('./cache');
 
 
 module.exports = async function (req, res, filePath,config) {
-	try {
-		const stats = await stat(filePath);
-		if (stats.isFile()) {
-			res.statusCode = 200;
-			const contentType = mime(filePath);
-			res.setHeader('Content-type', contentType);
+    try {
+        const stats = await stat(filePath);
+        if (stats.isFile()) {
+            res.statusCode = 200;
+            const contentType = mime(filePath);
+            res.setHeader('Content-type', contentType);
 
-			if(isFresh(stats, req, res)) {
-				res.statusCode = 304;
-				res.end();
-				return
-			}
+            if(isFresh(stats, req, res)) {
+                res.statusCode = 304;
+                res.end();
+                return;
+            }
 
-			let rs;
-			const {code, start, end} = range(stats.size, req, res); 
-			if(code === 200){
-				rs = fs.createReadStream(filePath);
-			}else{
-				rs = fs.createReadStream(filePath, {start, end});
-			}
+            let rs;
+            const {code, start, end} = range(stats.size, req, res); 
+            if(code === 200){
+                rs = fs.createReadStream(filePath);
+            }else{
+                rs = fs.createReadStream(filePath, {start, end});
+            }
 
-			if(filePath.match(config.compress)){
-				rs = compress(rs, req, res); //文件压缩
-			}
-			rs.pipe(res);
+            if(filePath.match(config.compress)){
+                rs = compress(rs, req, res); //文件压缩
+            }
+            rs.pipe(res);
 
 
-		} else if (stats.isDirectory()) {
-			const files = await readdir(filePath);
-			res.statusCode = 200;
-			res.setHeader('Content-type', 'text/html');
-			const dir = path.relative(config.root, filePath);
-			const data = {
-				tilte: path.basename(filePath),
-				dir: dir ? `/${dir}`: '',
-				files:files.map(file => {
-					return {
-						file,
-						icon: mime(file)
-					}
-				})
-			}
-			// res.end(files.join(',\n'));
-			res.end(template(data));
-		}
-	} catch (ex) {
-		// console.error(ex);
+        } else if (stats.isDirectory()) {
+            const files = await readdir(filePath);
+            res.statusCode = 200;
+            res.setHeader('Content-type', 'text/html');
+            const dir = path.relative(config.root, filePath);
+            const data = {
+                tilte: path.basename(filePath),
+                dir: dir ? `/${dir}`: '',
+                files:files.map(file => {
+                    return {
+                        file,
+                        icon: mime(file)
+                    };
+                })
+            };
+            // res.end(files.join(',\n'));
+            res.end(template(data));
+        }
+    } catch (ex) {
+        // console.error(ex);
 
-		res.statusCode = 404;
-		res.setHeader('Content-type', 'text/plain');
-		res.end(`${filePath} is not a directory or file\n ${ex.toString()}`);
-	}
-}
+        res.statusCode = 404;
+        res.setHeader('Content-type', 'text/plain');
+        res.end(`${filePath} is not a directory or file\n ${ex.toString()}`);
+    }
+};

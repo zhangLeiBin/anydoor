@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable indent */
 module.exports = (totalSize, req, res) => {
   const range = req.headers['range'];
@@ -21,5 +22,5 @@ module.exports = (totalSize, req, res) => {
     code: 206,
     start: parseInt(start),
     end: parseInt(end)
-  }
-}
+  };
+};
